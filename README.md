@@ -15,7 +15,7 @@ by 黄荷 2026年1月21日
 
 1、requirements.txt中打开了jpype1（使用jar必备插件）
 2、安装部署；
-  1）git clone https://ghfast.top/https://github.com/hlh2518/heyin_node.git
+  1）git clone https://ghfast.top/https://github.com/hlh2518/heyin_node2.git
   2) cd heyin_node
   3) chmod +x hy.sh hy_install.sh
   4) ./hy_install.sh
