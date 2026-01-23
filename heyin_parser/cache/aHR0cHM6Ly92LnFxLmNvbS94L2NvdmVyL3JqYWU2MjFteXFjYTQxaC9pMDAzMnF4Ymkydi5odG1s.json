@@ -1,0 +1,19 @@
+{
+  "url": "https://v.qq.com/x/cover/rjae621myqca41h/i0032qxbi2v.html",
+  "result": {
+    "code": 200,
+    "msg": "合印解析成功 (通过: https://jx.xmflv.com/?url=)",
+    "parse": 0,
+    "jx": 1,
+    "url": "https://202.189.8.170/Cache/qq/d0abe2ec49a299d27cd4e6012b90ae67.mp4?vkey=6465383543514944424156574167634143564d4a564649484256425a556c3846556777455646634341564a635546554b42414944",
+    "header": {
+      "referer": "https://jx.xmflv.com/",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    },
+    "flag": "腾讯视频",
+    "cost": "4782 ms",
+    "originalUrl": "https://v.qq.com/x/cover/rjae621myqca41h/i0032qxbi2v.html",
+    "jxSource": "https://jx.xmflv.com/?url="
+  },
+  "timestamp": 1768543628196
+}

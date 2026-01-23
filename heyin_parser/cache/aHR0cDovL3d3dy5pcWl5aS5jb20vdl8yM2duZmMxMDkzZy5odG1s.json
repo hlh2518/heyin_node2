@@ -1,0 +1,19 @@
+{
+  "url": "http://www.iqiyi.com/v_23gnfc1093g.html",
+  "result": {
+    "code": 200,
+    "msg": "合印解析成功 (通过: https://jx.xmflv.com/?url=)",
+    "parse": 0,
+    "jx": 1,
+    "url": "https://202.189.8.170/Cache/qiyi/de3deb0dcc90367fdecf00a13b27a7e0.m3u8?vkey=6434393541515a56555167474277685241676f464231565842564a5243674e5257775545443135535531414e5777594242564e53",
+    "header": {
+      "referer": "https://jx.xmflv.com/",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    },
+    "flag": "爱奇艺",
+    "cost": "2583 ms",
+    "originalUrl": "http://www.iqiyi.com/v_23gnfc1093g.html",
+    "jxSource": "https://jx.xmflv.com/?url="
+  },
+  "timestamp": 1768960375651
+}
