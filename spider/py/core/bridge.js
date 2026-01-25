@@ -2,7 +2,7 @@ import net from "net";
 import {Parser} from 'pickleparser';
 
 const HOST = "127.0.0.1";
-const PORT = 57570;
+const PORT = 25180;
 const MAX_MSG_SIZE = 10 * 1024 * 1024;
 const TIMEOUT = 30_000; // 30秒超时
 

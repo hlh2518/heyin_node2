@@ -580,8 +580,6 @@ const stopWebSocketServer = async () => {
     }
 };
 
-
-
 // 启动服务
 const start = async () => {
     try {
@@ -591,64 +589,60 @@ const start = async () => {
         // 启动 WebSocket 服务器
         await startWebSocketServer({port: WsPORT, host: '0.0.0.0'});
 
-        // 获取地址信息（带错误处理）
-        const getNetworkInfo = () => {
-            const localAddress = `http://localhost:${PORT}`;
-            const wsLocalAddress = `http://localhost:${WsPORT}`;
-            const snifferLocalAddress = `http://localhost:${SNIFFER_PORT}`;
-            
-            let lanAddress = `http://0.0.0.0:${PORT}`;
-            let wsLanAddress = `http://0.0.0.0:${WsPORT}`;
-            let snifferLanAddress = `http://0.0.0.0:${SNIFFER_PORT}`;
-            
-            try {
-                const interfaces = os.networkInterfaces();
-                if (interfaces) {
-                    for (const [key, iface] of Object.entries(interfaces)) {
-                        if (!iface) continue;
-                        for (const config of iface) {
-                            if (config.family === 'IPv4' && !config.internal && !config.address.startsWith('169.254')) {
-                                lanAddress = `http://${config.address}:${PORT}`;
-                                wsLanAddress = `http://${config.address}:${WsPORT}`;
-                                snifferLanAddress = `http://${config.address}:${SNIFFER_PORT}`;
-                                break;
-                            }
-                        }
-                    }
-                }
-            } catch (error) {
-                console.warn(`⚠️ 无法获取网络接口信息，使用默认地址: ${error.message}`);
-            }
-            
-            return {
-                localAddress, wsLocalAddress, snifferLocalAddress,
-                lanAddress, wsLanAddress, snifferLanAddress
-            };
-        };
+        // 获取本地和局域网地址
+        const localAddress = `http://localhost:${PORT}`;
+        const wsLocalAddress = `http://localhost:${WsPORT}`;
+        const snifferLocalAddress = `http://localhost:${SNIFFER_PORT}`;
 
-        const networkInfo = getNetworkInfo();
+        const interfaces = os.networkInterfaces();
+        let lanAddress = '不可用';
+        let wsLanAddress = '不可用';
+        let snifferLanAddress = '不可用';
+
+        for (const [key, iface] of Object.entries(interfaces)) {
+            if (key.startsWith('VMware Network Adapter VMnet') || !iface) continue;
+            for (const config of iface) {
+                if (config.family === 'IPv4' && !config.internal) {
+                    lanAddress = `http://${config.address}:${PORT}`;
+                    wsLanAddress = `http://${config.address}:${WsPORT}`;
+                    snifferLanAddress = `http://${config.address}:${SNIFFER_PORT}`;
+                    break;
+                }
+            }
+        }
 
         console.log(`\n🚀 DRPY Node.js 容器启动成功:`);
         console.log(`\n📡 主服务 (端口 ${PORT}):`);
-        console.log(`  - 本地: ${networkInfo.localAddress}`);
-        console.log(`  - 局域网: ${networkInfo.lanAddress}`);
+        console.log(`  - 本地: ${localAddress}`);
+        console.log(`  - 局域网: ${lanAddress}`);
         console.log(`\n🔌 WebSocket服务 (端口 ${WsPORT}):`);
-        console.log(`  - 本地: ${networkInfo.wsLocalAddress}`);
-        console.log(`  - 局域网: ${networkInfo.wsLanAddress}`);
+        console.log(`  - 本地: ${wsLocalAddress}`);
+        console.log(`  - 局域网: ${wsLanAddress}`);
         console.log(`\n🔍 智能路由嗅探器 (端口 ${SNIFFER_PORT}):`);
-        console.log(`  - 本地: ${networkInfo.snifferLocalAddress}`);
-        console.log(`  - 局域网: ${networkInfo.snifferLanAddress}`);
+        console.log(`  - 本地: ${snifferLocalAddress}`);
+        console.log(`  - 局域网: ${snifferLanAddress}`);
         console.log(`  - 接口: GET /parse?url={视频URL}`);
-        
-        // ... 其他信息 ...
+        console.log(`  - 示例: curl "${snifferLanAddress}/parse?url=https://v.qq.com/x/cover/mzc002002yfzpaf/q4101rbtkw5.html"`);
+        console.log(`\n📂 目录服务:`);
+        console.log(`  - JX解析脚本: ${lanAddress}/jx/`);
+        console.log(`  - Node嗅探器脚本: ${lanAddress}/jx/荷影智能解析.js`);
+        console.log(`\n⚙️  系统信息:`);
+        console.log(`  - 平台: ${process.platform} ${process.arch}`);
+        console.log(`  - Node版本: ${process.version}`);
+
+        if (process.env.VERCEL) {
+            console.log('  - 运行环境: Vercel');
+            console.log(`  - Vercel环境: ${process.env.VERCEL_ENV}`);
+            console.log(`  - Vercel URL: ${process.env.VERCEL_URL}`);
+        } else {
+            console.log('  - 运行环境: 本地服务器');
+        }
 
     } catch (err) {
         fastify.log.error(err);
         process.exit(1);
     }
 };
-
-
 
 // 停止服务
 const stop = async () => {

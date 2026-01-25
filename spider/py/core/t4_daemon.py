@@ -46,7 +46,7 @@ except Exception:
 # 配置常量（可按需调整）
 # =========================
 HOST = "127.0.0.1"
-PORT = 57570
+PORT = 25180
 
 MAX_MSG_SIZE = 60 * 1024 * 1024  # 60MB
 MAX_CACHED_INSTANCES = 100  # 最大缓存实例数

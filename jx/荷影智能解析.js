@@ -1,5 +1,5 @@
 /**
- * 智能解析 - Node.js版本 (2999端口)
+ * 智能解析 -荷影 (2692端口)
  * 路径: /jx/智能解析.js
  */
 
@@ -17,13 +17,13 @@ async function lazy(input, params) {
     else if (videoUrl.includes('mgtv.com')) flag = '芒果';
     else if (videoUrl.includes('bilibili.com')) flag = '哔哩哔哩';
 
-    // 2. 使用Node.js版本 (2999端口)
-    const NODE_API = 'http://192.168.1.100:2999/parse';
+    // 2. 使用荷影 (2692端口)
+    const NODE_API = 'http://127.0.0.1:2692/parse';
 
     let result = null;
 
     try {
-        log(`[智能解析] 使用Node.js版本 (2999端口)`);
+        log(`[智能解析] 使用 荷影 (2692端口)`);
         const nodeUrl = `${NODE_API}?url=${encodeURIComponent(videoUrl)}`;
 
         result = await requestJson(nodeUrl, {
@@ -35,10 +35,10 @@ async function lazy(input, params) {
             timeout: 15000  // 15秒超时
         });
 
-        log(`✅ [智能解析] Node.js版本成功`);
+        log(`✅ [智能解析] 荷影成功`);
 
     } catch (nodeError) {
-        log(`❌ [智能解析] Node.js版本失败: ${nodeError.message}`);
+        log(`❌ [智能解析] 荷影失败: ${nodeError.message}`);
         
         // 直接返回需要嗅探的结果，不尝试Python版本
         return {

@@ -9,7 +9,7 @@ import struct
 import sys
 
 HOST = "127.0.0.1"
-PORT = 57570
+PORT = 25180
 MAX_MSG_SIZE = 10 * 1024 * 1024
 TIMEOUT = 30
 
@@ -44,7 +44,7 @@ def main():
     p.add_argument("--env", default="", help="JSON字符串（可包含 proxyUrl/ext）或普通字符串")
     p.add_argument("--arg", action="append", default=[], help="方法参数；可多次传入。每个参数若可解析为JSON则按JSON，否则按字符串")
     p.add_argument("--host", default=HOST, help="守护进程主机（默认127.0.0.1）")
-    p.add_argument("--port", type=int, default=PORT, help="守护进程端口（默认57570）")
+    p.add_argument("--port", type=int, default=PORT, help="守护进程端口（默认25180）")
     p.add_argument("--timeout", type=int, default=TIMEOUT, help="超时秒数（默认30）")
     args = p.parse_args()
 

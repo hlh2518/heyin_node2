@@ -117,7 +117,7 @@ export default (wsApp, options, done) => {
                 <li>此服务运行在独立端口 ${WsPORT}</li>
                 <li>专门提供 WebSocket 实时通信功能</li>
                 <li>与主服务 (端口 ${PORT}) 协同工作</li>
-                <li>支持斗鱼直播弹幕等实时功能</li>
+                <li>by 黄荷于 2026 年 1 月 25 日</li>
             </ul>
         </div>
     </div>

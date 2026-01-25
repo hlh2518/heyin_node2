@@ -117,14 +117,14 @@ var rule = {
     headers:{
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
         "Referer": "https://www.bilibili.com",
-        // "Cookie":"http://192.168.1.100:5757/jx/cookiehe.txt"
+        // "Cookie":"http://127.0.0.1:25181/jx/cookiehe.txt"
 
-        // "Cookie": await (await fetch('http://192.168.1.100:5757/jx/cookiehe.txt')).text()
+        // "Cookie": await (await fetch('http://127.0.0.1:25181/jx/cookiehe.txt')).text()
     },
  // =========== Cookie管理器 ===========
     cookieManager: {
         // Cookie文件路径
-        cookieFile: 'http://192.168.1.100:5757/jx/cookiehe.json',
+        cookieFile: 'http://127.0.0.1:25181/jx/cookiehe.json',
         // 备用硬编码Cookie
         fallbackCookie: "",
         // 缓存时间（毫秒）

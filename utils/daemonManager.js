@@ -86,7 +86,7 @@ export class DaemonManager {
             daemonScript: path.join(this.rootDir, 'spider/py/core', this.daemonFile), // 守护进程脚本路径
             clientScript: path.join(this.rootDir, 'spider/py/core', 'bridge.py'), // 客户端脚本路径
             host: '127.0.0.1', // 服务器主机
-            port: 57570, // 服务器端口
+            port: 25180, // 服务器端口
         };
     }
 

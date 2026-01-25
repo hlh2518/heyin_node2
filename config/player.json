@@ -1,6 +1,6 @@
 {
   "wallpaper": "https://api.likepoems.com/img/bing/",
-  "spider": "http://192.168.1.100:575/jx/heyin.jar;md5;4c081707466c977fe510db01d9bd695c",
+  "spider": "http://127.0.0.1:25181/jx/heyin.jar;md5;4c081707466c977fe510db01d9bd695c",
   "homepage": "",
   "aiLogo": "https://image.baidu.com/search/index?tn=baiduimage&ct=201326592&lm=-1&cl=2&word=%E7%8B%97%E4%BD%9C%E4%B8%BA%E8%BD%AF%E4%BB%B6%E5%9B%BE%E6%A0%87&dyTabStr=MCwxMiwzLDEsMiwxMyw3LDYsNSw5",
   "homeLogo": "https://github.catvod.com/https://raw.githubusercontent.com/hjdhnx/drpy-node/refs/heads/main/public/images/logo500x200-1.png",
