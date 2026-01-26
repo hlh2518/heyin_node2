@@ -1,6 +1,6 @@
-# 黄荷服务器系统(by 黄荷 2026年1月21日 )
+# 黄荷服务器系统(by 黄荷 2026年1月26日 )
 
-by 黄荷 2026年1月21日 
+by 黄荷 2026年1月26 日 
 
 ### 常用超链接
 * [本地配置接口-动态本地](/config?healthy=1&pwd=$pwd)
@@ -11,24 +11,24 @@ by 黄荷 2026年1月21日
 -------------------------
 
 
-##2026年1月1月12日重大更新记录
+##2026年1月1月26日重大更新记录:主要解决了ARM架构无root权限使用proot模式下的完美运行
 
 1、requirements.txt中打开了jpype1（使用jar必备插件）
 2、安装部署；
   1）git clone https://ghfast.top/https://github.com/hlh2518/heyin_node2.git
-  2) cd heyin_node
+  2) mv heyin_node2 heyin && cd heyin
   3) chmod +x hy.sh hy_install.sh
   4) ./hy_install.sh
   5) cd heyin_parser
   6) npm install
   7) cd ..
-  8) cp -r hy.sh /hoem/hlhwan
+  8) cp -r hy.sh /hoem/heyin
   9) cd hlhwan
   10) ./hy.sh
   
 3、HE影.apk配置api：
-  1)http://192.168.1.100:5757/config/1  
-  2)http://192.168.1.100:5757/jx/hy.png 
+  1)http://局域网:25181/config/1  
+  
 
 
 

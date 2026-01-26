@@ -64,14 +64,14 @@ echo_step() {
 
 echo_title() {
     echo ""
-    echo -e "${BOLD}${BG_WHITE}${BRIGHT_WHITE}═════════════════════════════════════════════════════════════════${RESET}"
+    echo -e "${BOLD}${BG_WHITE}${BRIGHT_WHITE}══════════════════════════════════════════════════════════${RESET}"
     echo -e "${BOLD}${BG_WHITE}${BRIGHT_RED}  $1${RESET}"
-    echo -e "${BOLD}${BG_WHITE}${BRIGHT_WHITE}═════════════════════════════════════════════════════════════════${RESET}"
+    echo -e "${BOLD}${BG_WHITE}${BRIGHT_WHITE}══════════════════════════════════════════════════════════${RESET}"
     echo ""
 }
 
 echo_divider() {
-    echo -e "${BOLD}${YELLOW}─────────────────────────────────────────────────────────────────${RESET}"
+    echo -e "${BOLD}${YELLOW}──────────────────────────────────────────────────────────${RESET}"
 }
 
 # ==================== 变量定义 ====================
@@ -87,11 +87,11 @@ mkdir -p "$LOG_DIR"
 clear
 echo ""
 # 闪烁效果标题（如果终端支持）
-echo -e "${BLINK}${BOLD}${BRIGHT_YELLOW}╔═══════════════════════════════════════════════════════════════╗${RESET}"
-echo -e "${BLINK}${BOLD}${BRIGHT_YELLOW}║                                                               ║${RESET}"
-echo -e "${BLINK}${BOLD}${BRIGHT_YELLOW}║                     荷影服务器系统  BY 黄荷                   ║${RESET}"
-echo -e "${BLINK}${BOLD}${BRIGHT_YELLOW}║                                                               ║${RESET}"
-echo -e "${BLINK}${BOLD}${BRIGHT_YELLOW}╚═══════════════════════════════════════════════════════════════╝${RESET}"
+echo -e "${BLINK}${BOLD}${BRIGHT_YELLOW}╔════════════════════════════════════════════════════════╗${RESET}"
+echo -e "${BLINK}${BOLD}${BRIGHT_YELLOW}║                                                        ║${RESET}"
+echo -e "${BLINK}${BOLD}${BRIGHT_YELLOW}║                  荷影服务器系统  BY 黄荷               ║${RESET}"
+echo -e "${BLINK}${BOLD}${BRIGHT_YELLOW}║                                                        ║${RESET}"
+echo -e "${BLINK}${BOLD}${BRIGHT_YELLOW}╚════════════════════════════════════════════════════════╝${RESET}"
 echo ""
 
 
@@ -104,7 +104,7 @@ echo_success "工作目录设置完成: $HEYIN_DIR"
 #所有服务线程先停止再启动原则
 # 1. 停止所有可能运行的服务
 echo_step "停止所有现有服务..."
-pkill -f "node index.js" 2>/dev/null && echo_info "停止 荷影3.0"
+pkill -f "node index.js" 2>/dev/null && echo_info "停止 荷影8.0"
 
 sleep 2
 echo_success "所有服务已停止"
@@ -114,11 +114,11 @@ echo_divider
 
 
 # 2. 启动 drpyS (Node.js 应用)
-echo_step "启动 荷影3.0 (drpyS)..."
+echo_step "启动 荷影8.0 (drpyS)..."
 cd "$HEYIN_DIR" || exit 1
 
 # 安装依赖
-echo_info "安装 荷影3.0依赖..."
+echo_info "安装 荷影8.0依赖..."
 npm install 2>&1 | while read line; do
     if echo "$line" | grep -q "added"; then
         echo -e "${GREEN}  ${line}${RESET}"
@@ -136,13 +136,13 @@ echo_info "清理旧文件..."
 rm -rf nohup.out docs soft
 
 # 启动 Node.js 应用并等待
-echo_info "启动 荷影3.0 应用..."
+echo_info "启动 荷影8.0 应用..."
 #nohup node index.js > "${LOG_DIR}/drpys.log" 2>&1 &
 
 node index.js & echo $! > nohup2.pid 
 
 NODE_PID=$!
-echo_info "荷影3.0 应用 PID: ${BRIGHT_YELLOW}$NODE_PID${RESET}"
+echo_info "荷影8.0 应用 PID: ${BRIGHT_YELLOW}$NODE_PID${RESET}"
 
 # 等待 Node.js 启动完成
 echo -ne "${BLUE}等待应用启动完成"
@@ -153,43 +153,11 @@ done
 echo ""
 
 if ! kill -0 $NODE_PID 2>/dev/null; then
-    echo_error "荷影3.0 应用启动失败"
+    echo_error "荷影8.0 应用启动失败"
     tail -20 "${LOG_DIR}/drpys.log"
     exit 1
 fi
 
-echo_success "$(date +%Y-%m-%d\ %H:%M:%S) - 荷影3.0 应用启动成功"
-
-echo_divider
-
-
-
-# 3. 检查所有服务状态
-echo_title "服务状态检查报告"
-
-echo -e "${BOLD}${BRIGHT_WHITE}服务状态概览:${RESET}"
-echo ""
-
-# 1. 荷影3.0 (drpyS)
-echo -ne "${BOLD}${CYAN}[1] 荷影3.0 (drpyS):${RESET} "
-if ps -p $NODE_PID >/dev/null; then
-    echo -e "${BRIGHT_GREEN}✓ 运行中${RESET} ${WHITE}(PID: ${BRIGHT_YELLOW}$NODE_PID${WHITE})${RESET}"
-    echo -e "   ${WHITE}日志: ${UNDERLINE}${LOG_DIR}/drpys.log${RESET}"
-else
-    echo -e "${RED}✗ 未运行${RESET}"
-fi
-echo ""
-
-# 2. 荷影解析服务器 (heyinx)
-echo -ne "${BOLD}${CYAN}[2] 荷影解析服务器 :${RESET} "
-if ps -p $HEYINX_PID >/dev/null; then
-    echo -e "${BRIGHT_GREEN}✓ 运行中${RESET} ${WHITE}(PID: ${BRIGHT_YELLOW}$HEYINX_PID${WHITE})${RESET}"
-    PORT_STATUS=$(ss -tulpn | grep :2999 >/dev/null && echo -e "${BRIGHT_GREEN}监听中${RESET}" || echo -e "${RED}未监听${RESET}")
-    echo -e "   ${WHITE}解析端口 2999 状态: $PORT_STATUS${RESET}"
-    echo -e "   ${WHITE}日志: ${UNDERLINE}${LOG_DIR}/heyinx.log${RESET}"
-else
-    echo -e "${RED}✗ 未运行${RESET}"
-fi
 echo ""
 
 

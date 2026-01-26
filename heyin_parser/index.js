@@ -291,7 +291,7 @@ function convertToBrowserFormat(parsedData, originalUrl) {
 
     return {
         code: 200,
-        msg: `合印解析成功 (通过: https://jx.xmflv.com/?url=)`,
+        msg: `荷影解析成功 (通过: https://jx.xmflv.com/?url=)`,
         parse: 0,
         jx: 1,
         url: parsedData.url,
@@ -501,7 +501,7 @@ app.get('/clear-cache', (req, res) => {
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
     app.listen(PORT, () => {
         console.log('='.repeat(60));
-        console.log('合印解析服务已启动');
+        console.log('荷影解析服务已启动');
         console.log(`服务地址: http://localhost:${PORT}`);
         console.log('可用接口:');
         console.log(`  1. 解析接口: http://localhost:${PORT}/parse?url=视频地址`);
