@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Video API Parser ",
   "main": "heyin_sniffer.js",
+  "type": "module",
   "scripts": {
     "start": "node heyin_sniffer.js",
     "test": "echo \"Error: no test specified\" && exit 1"
