@@ -1,5 +1,6 @@
-const CryptoJS = require("crypto-js");
-const axios = require("axios");
+import CryptoJS from 'crypto-js';
+import axios from 'axios';
+import https from 'https';
 
 // ==========================================
 // 1. CONFIGURATION
@@ -108,7 +109,6 @@ function decryptResponse(encryptedData) {
 // ==========================================
 
 async function heyin_sniffer() {
-    const https = require('https');
     const agent = new https.Agent({
         rejectUnauthorized: false
     });
