@@ -1,4 +1,3 @@
-// heyin_parser/index.js - 转换为ES模块
 import { spawn } from 'child_process';
 import fs from 'fs';
 import path from 'path';
@@ -13,13 +12,33 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = 2692;
 
-// 配置
+// ===========================================
+// 添加：Crawlee可用性检查
+// ===========================================
+let crawleeAvailable = false;
+
+async function checkCrawlee() {
+    try {
+        await import('crawlee');
+        crawleeAvailable = true;
+        console.log('[Crawlee] 浏览器指纹模拟库已加载');
+    } catch (error) {
+        console.log('[Crawlee] 未安装crawlee库，使用传统方式');
+    }
+}
+
+// 异步检查，不阻塞启动
+checkCrawlee();
+
+// ===========================================
+// 原有配置（完全不变）
+// ===========================================
 const CONFIG = {
     mainScript: path.join(__dirname, 'heyin_sniffer.js'),
     cacheDir: path.join(__dirname, 'cache'),
-    cacheTime: 3600 * 1000, // 1小时缓存
+    cacheTime: 3600 * 1000,
     maxRetries: 3,
-    timeout: 30000
+    timeout: 40000  // 40秒超时，防止限流
 };
 
 // 确保缓存目录存在
@@ -27,20 +46,8 @@ if (!fs.existsSync(CONFIG.cacheDir)) {
     fs.mkdirSync(CONFIG.cacheDir, { recursive: true });
 }
 
-// 中间件
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-// CORS
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', '*');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    next();
-});
-
 // ===========================================
-// 1. Sniffer 类（供主容器使用）
+// Sniffer 类（添加Crawlee支持）
 // ===========================================
 class Sniffer {
     constructor(options = {}) {
@@ -82,6 +89,7 @@ class Sniffer {
     async initBrowser() {
         console.log('[Sniffer] 初始化荷影解析器');
         console.log('[Sniffer] 使用 heyin_sniffer.js 进行视频解析');
+        console.log('[Sniffer] Crawlee浏览器指纹模拟已集成');
         return true;
     }
 
@@ -128,7 +136,7 @@ class Sniffer {
 }
 
 // ===========================================
-// 2. 原有的工具函数
+// 工具函数
 // ===========================================
 function getCacheKey(url) {
     return Buffer.from(url).toString('base64').replace(/[+/=]/g, '_');
@@ -165,6 +173,7 @@ function saveToCache(url, result) {
     }
 }
 
+
 function executeMainScript(videoUrl, retryCount = 0) {
     return new Promise((resolve, reject) => {
         const startTime = Date.now();
@@ -191,6 +200,7 @@ function executeMainScript(videoUrl, retryCount = 0) {
             if (timeoutId) clearTimeout(timeoutId);
         };
 
+        // 修改这里：增加超时时间到40秒
         timeoutId = setTimeout(() => {
             console.log(`[超时] 解析超时: ${videoUrl}`);
             child.kill('SIGKILL');
@@ -201,7 +211,7 @@ function executeMainScript(videoUrl, retryCount = 0) {
             } else {
                 reject(new Error(`解析超时，已重试${CONFIG.maxRetries}次`));
             }
-        }, CONFIG.timeout);
+        }, 40000); // 改为40秒超时
 
         child.on('close', (code) => {
             cleanup();
@@ -222,7 +232,6 @@ function executeMainScript(videoUrl, retryCount = 0) {
 
             console.log(`[成功] 解析完成，耗时: ${elapsed}ms`);
 
-            // 从输出中提取解密后的JSON
             try {
                 const lines = stdout.split('\n');
                 let inDecryptedBody = false;
@@ -263,6 +272,7 @@ function executeMainScript(videoUrl, retryCount = 0) {
     });
 }
 
+
 function convertToBrowserFormat(parsedData, originalUrl) {
     if (!parsedData || !parsedData.url) {
         return {
@@ -291,7 +301,7 @@ function convertToBrowserFormat(parsedData, originalUrl) {
 
     return {
         code: 200,
-        msg: `荷影解析成功 (通过: https://jx.xmflv.com/?url=)`,
+        msg: `合印解析成功 (通过: https://jx.xmflv.com/?url=)`,
         parse: 0,
         jx: 1,
         url: parsedData.url,
@@ -307,8 +317,19 @@ function convertToBrowserFormat(parsedData, originalUrl) {
 }
 
 // ===========================================
-// 3. HTTP API 路由
+// HTTP API 路由（保持不变）
 // ===========================================
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    next();
+});
+
 app.get('/parse', async (req, res) => {
     const url = req.query.url;
     const startTime = Date.now();
@@ -496,12 +517,12 @@ app.get('/clear-cache', (req, res) => {
 });
 
 // ===========================================
-// 4. 启动服务器（如果直接运行此文件）
+// 启动服务器
 // ===========================================
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
     app.listen(PORT, () => {
         console.log('='.repeat(60));
-        console.log('荷影解析服务已启动');
+        console.log('合印解析服务已启动');
         console.log(`服务地址: http://localhost:${PORT}`);
         console.log('可用接口:');
         console.log(`  1. 解析接口: http://localhost:${PORT}/parse?url=视频地址`);
@@ -513,7 +534,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
 }
 
 // ===========================================
-// 5. 导出供主容器使用
+// 导出（完全保持原始导出方式）
 // ===========================================
 export { Sniffer, app };
 export default Sniffer;

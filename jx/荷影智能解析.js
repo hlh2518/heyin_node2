@@ -1,13 +1,17 @@
 /**
- * 荷影智能解析 -荷影 (2692端口)
- * 路径: /jx/荷影智能解析.js
+ * 智能解析 - 荷影 (2692端口)
+ * 路径: /jx/智能解析.js
  */
 
 const { requestJson } = $.require('./_lib.request.js');
 
 async function lazy(input, params) {
     const videoUrl = typeof input === 'object' ? input.url : input;
-    log(`[荷影智能解析] 输入: ${videoUrl}`);
+    log(`[智能解析] 输入: ${videoUrl}`);
+
+    // 添加智能延迟，防止频繁请求被限流（新增）
+    const delay = 800 + Math.random() * 1200;
+    await new Promise(resolve => setTimeout(resolve, delay));
 
     // 1. 确定flag（平台标识）
     let flag = 'other';
@@ -23,7 +27,7 @@ async function lazy(input, params) {
     let result = null;
 
     try {
-        log(`[荷影智能解析] 使用 荷影 (2692端口)`);
+        log(`[智能解析] 使用 荷影 (2692端口)`);
         const nodeUrl = `${NODE_API}?url=${encodeURIComponent(videoUrl)}`;
 
         result = await requestJson(nodeUrl, {
@@ -32,14 +36,14 @@ async function lazy(input, params) {
                 'User-Agent': 'TVBox-Player/1.0',
                 'Accept': 'application/json'
             },
-            timeout: 15000  // 15秒超时
+            timeout: 30000
         });
 
-        log(`✅ [荷影智能解析] 荷影成功`);
+        log(`✅ [智能解析] 荷影成功`);
 
     } catch (nodeError) {
-        log(`❌ [荷影智能解析] 荷影失败: ${nodeError.message}`);
-        
+        log(`❌ [智能解析] 荷影失败: ${nodeError.message}`);
+
         // 直接返回需要嗅探的结果，不尝试Python版本
         return {
             parse: 1,  // 需要嗅探
@@ -52,15 +56,15 @@ async function lazy(input, params) {
                 .replace('优酷', 'youku')
                 .replace('芒果', 'mgtv')
                 .replace('哔哩哔哩', 'bili'),
-            msg: `荷影智能解析失败: ${nodeError.message}`
+            msg: `智能解析失败: ${nodeError.message}`
         };
     }
 
     // 3. 处理返回结果
     if (result && result.code === 200 && result.url) {
-        log(`✅ [荷影智能解析] 成功: ${result.url.substring(0, 80)}...`);
+        log(`✅ [智能解析] 成功: ${result.url.substring(0, 80)}...`);
         if (result.cost) {
-            log(`✅ [荷影智能解析] 耗时: ${result.cost}`);
+            log(`✅ [智能解析] 耗时: ${result.cost}`);
         }
 
         // 根据parse字段决定返回格式
@@ -99,7 +103,7 @@ async function lazy(input, params) {
     } else {
         // API返回了失败
         const errorMsg = result?.msg || `API返回失败 code=${result?.code || '未知'}`;
-        log(`❌ [荷影智能解析] 失败: ${errorMsg}`);
+        log(`❌ [智能解析] 失败: ${errorMsg}`);
 
         // 降级方案：返回原始URL让系统嗅探
         return {
@@ -113,13 +117,13 @@ async function lazy(input, params) {
                 .replace('优酷', 'youku')
                 .replace('芒果', 'mgtv')
                 .replace('哔哩哔哩', 'bili'),
-            msg: `荷影智能解析失败: ${errorMsg}`
+            msg: `智能解析失败: ${errorMsg}`
         };
     }
 }
 
 module.exports = {
-    name: '荷影智能解析(Node.js版)',
+    name: '智能解析(Node.js版)',
     version: '2.0.1',
     lazy: lazy
 };
