@@ -640,7 +640,7 @@ const start = async () => {
         console.log(`  - 局域网: ${networkInfo.snifferLanAddress}`);
         console.log(`  - 接口: GET /parse?url={视频URL}`);
         
-        // ... 其他信息 ...
+       
 
     } catch (err) {
         fastify.log.error(err);
