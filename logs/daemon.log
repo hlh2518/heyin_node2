@@ -109,3 +109,143 @@
 2026-03-04T04:20:08.276Z [INFO] 守护进程启动成功，PID: 8652
 2026-03-04T04:20:08.399Z [INFO] [守护进程] 2026-03-04 12:20:08,399 | INFO | T4 daemon listening on 127.0.0.1:25180
 2026-03-04T04:20:10.037Z [INFO] [守护进程] 2026-03-04 12:20:10,022 | WARNING | Client connected then closed without sending data
+2026-03-04T05:15:39.285Z [INFO] 正在启动 Python 守护进程 [t4_daemon.py]...
+2026-03-04T05:15:39.303Z [INFO] 守护进程启动成功，PID: 19949
+2026-03-04T05:15:39.597Z [INFO] [守护进程] 2026-03-04 13:15:39,596 | INFO | T4 daemon listening on 127.0.0.1:25180
+2026-03-04T05:15:39.616Z [INFO] [守护进程] 2026-03-04 13:15:39,615 | WARNING | Client connected then closed without sending data
+2026-03-04T07:18:29.244Z [INFO] 正在启动 Python 守护进程 [t4_daemon.py]...
+2026-03-04T07:18:29.282Z [INFO] 守护进程启动成功，PID: 15552
+2026-03-04T07:18:29.687Z [INFO] [守护进程] 2026-03-04 15:18:29,686 | INFO | T4 daemon listening on 127.0.0.1:25180
+2026-03-04T07:18:29.919Z [INFO] [守护进程] 2026-03-04 15:18:29,917 | WARNING | Client connected then closed without sending data
+2026-03-04T07:19:15.173Z [INFO] 正在停止守护进程...
+2026-03-04T07:19:15.180Z [INFO] [守护进程] 2026-03-04 15:19:15,154 | INFO | Stopping server ...
+2026-03-04T07:19:15.192Z [INFO] [守护进程] 2026-03-04 15:19:15,185 | INFO | Stopping server ...
+2026-03-04T07:19:18.185Z [WARN] 守护进程未退出，强制终止...
+2026-03-04T07:19:18.192Z [INFO] 守护进程已停止
+2026-03-04T07:20:53.473Z [INFO] 正在启动 Python 守护进程 [t4_daemon.py]...
+2026-03-04T07:20:53.508Z [INFO] 守护进程启动成功，PID: 15744
+2026-03-04T07:20:53.848Z [INFO] [守护进程] 2026-03-04 15:20:53,848 | INFO | T4 daemon listening on 127.0.0.1:25180
+2026-03-04T07:20:54.146Z [INFO] [守护进程] 2026-03-04 15:20:54,139 | WARNING | Client connected then closed without sending data
+2026-03-04T10:27:13.541Z [INFO] 正在启动 Python 守护进程 [t4_daemon.py]...
+2026-03-04T10:27:13.582Z [INFO] 守护进程启动成功，PID: 12645
+2026-03-04T10:27:14.335Z [INFO] [守护进程] 2026-03-04 18:27:14,331 | INFO | T4 daemon listening on 127.0.0.1:25180
+2026-03-04T10:27:14.536Z [INFO] [守护进程] 2026-03-04 18:27:14,526 | WARNING | Client connected then closed without sending data
+2026-03-04T10:33:12.340Z [INFO] 正在启动 Python 守护进程 [t4_daemon.py]...
+2026-03-04T10:33:12.379Z [INFO] 守护进程启动成功，PID: 13708
+2026-03-04T10:33:13.057Z [INFO] [守护进程] 2026-03-04 18:33:13,053 | INFO | T4 daemon listening on 127.0.0.1:25180
+2026-03-04T10:33:13.319Z [INFO] [守护进程] 2026-03-04 18:33:13,317 | WARNING | Client connected then closed without sending data
+2026-03-04T12:02:29.768Z [INFO] 正在启动 Python 守护进程 [t4_daemon.py]...
+2026-03-04T12:02:29.920Z [INFO] 守护进程启动成功，PID: 7088
+2026-03-04T12:02:31.010Z [INFO] [守护进程] 2026-03-04 20:02:30,954 | INFO | T4 daemon listening on 127.0.0.1:25180
+2026-03-04T12:02:31.271Z [INFO] [守护进程] 2026-03-04 20:02:31,263 | WARNING | Client connected then closed without sending data
+2026-03-04T12:13:19.021Z [INFO] 正在启动 Python 守护进程 [t4_daemon.py]...
+2026-03-04T12:13:19.037Z [INFO] 守护进程启动成功，PID: 10288
+2026-03-04T12:13:19.291Z [INFO] [守护进程] 2026-03-04 20:13:19,290 | INFO | T4 daemon listening on 127.0.0.1:25180
+2026-03-04T12:13:19.355Z [INFO] [守护进程] 2026-03-04 20:13:19,352 | WARNING | Client connected then closed without sending data
+2026-03-04T12:18:59.532Z [INFO] 正在启动 Python 守护进程 [t4_daemon.py]...
+2026-03-04T12:18:59.547Z [INFO] 守护进程启动成功，PID: 11523
+2026-03-04T12:18:59.798Z [INFO] [守护进程] 2026-03-04 20:18:59,797 | INFO | T4 daemon listening on 127.0.0.1:25180
+2026-03-04T12:18:59.862Z [INFO] [守护进程] 2026-03-04 20:18:59,861 | WARNING | Client connected then closed without sending data
+2026-03-04T12:21:31.676Z [INFO] 正在启动 Python 守护进程 [t4_daemon.py]...
+2026-03-04T12:21:31.690Z [INFO] 守护进程启动成功，PID: 12719
+2026-03-04T12:21:31.943Z [INFO] [守护进程] 2026-03-04 20:21:31,942 | INFO | T4 daemon listening on 127.0.0.1:25180
+2026-03-04T12:21:32.008Z [INFO] [守护进程] 2026-03-04 20:21:32,004 | WARNING | Client connected then closed without sending data
+2026-03-04T12:23:53.829Z [INFO] 正在启动 Python 守护进程 [t4_daemon.py]...
+2026-03-04T12:23:53.841Z [INFO] 守护进程启动成功，PID: 14107
+2026-03-04T12:23:53.972Z [INFO] [守护进程] 2026-03-04 20:23:53,972 | INFO | T4 daemon listening on 127.0.0.1:25180
+2026-03-04T12:23:54.156Z [INFO] [守护进程] 2026-03-04 20:23:54,155 | WARNING | Client connected then closed without sending data
+2026-03-04T12:28:01.660Z [INFO] 正在启动 Python 守护进程 [t4_daemon.py]...
+2026-03-04T12:28:01.673Z [INFO] 守护进程启动成功，PID: 14934
+2026-03-04T12:28:01.808Z [INFO] [守护进程] 2026-03-04 20:28:01,808 | INFO | T4 daemon listening on 127.0.0.1:25180
+2026-03-04T12:28:01.993Z [INFO] [守护进程] 2026-03-04 20:28:01,992 | WARNING | Client connected then closed without sending data
+2026-03-04T12:29:39.380Z [INFO] 正在启动 Python 守护进程 [t4_daemon.py]...
+2026-03-04T12:29:39.396Z [INFO] 守护进程启动成功，PID: 15734
+2026-03-04T12:29:39.643Z [INFO] [守护进程] 2026-03-04 20:29:39,642 | INFO | T4 daemon listening on 127.0.0.1:25180
+2026-03-04T12:29:39.713Z [INFO] [守护进程] 2026-03-04 20:29:39,712 | WARNING | Client connected then closed without sending data
+2026-03-04T12:31:17.459Z [INFO] 正在启动 Python 守护进程 [t4_daemon.py]...
+2026-03-04T12:31:17.473Z [INFO] 守护进程启动成功，PID: 16707
+2026-03-04T12:31:17.609Z [INFO] [守护进程] 2026-03-04 20:31:17,608 | INFO | T4 daemon listening on 127.0.0.1:25180
+2026-03-04T12:31:17.787Z [INFO] [守护进程] 2026-03-04 20:31:17,786 | WARNING | Client connected then closed without sending data
+2026-03-04T12:34:01.996Z [INFO] 正在启动 Python 守护进程 [t4_daemon.py]...
+2026-03-04T12:34:02.010Z [INFO] 守护进程启动成功，PID: 17904
+2026-03-04T12:34:02.265Z [INFO] [守护进程] 2026-03-04 20:34:02,264 | INFO | T4 daemon listening on 127.0.0.1:25180
+2026-03-04T12:34:02.326Z [INFO] [守护进程] 2026-03-04 20:34:02,325 | WARNING | Client connected then closed without sending data
+2026-03-04T12:34:48.734Z [INFO] 正在启动 Python 守护进程 [t4_daemon.py]...
+2026-03-04T12:34:48.747Z [INFO] 守护进程启动成功，PID: 18502
+2026-03-04T12:34:48.886Z [INFO] [守护进程] 2026-03-04 20:34:48,885 | INFO | T4 daemon listening on 127.0.0.1:25180
+2026-03-04T12:34:49.063Z [INFO] [守护进程] 2026-03-04 20:34:49,061 | WARNING | Client connected then closed without sending data
+2026-03-04T12:36:43.091Z [INFO] 正在启动 Python 守护进程 [t4_daemon.py]...
+2026-03-04T12:36:43.102Z [INFO] 守护进程启动成功，PID: 19337
+2026-03-04T12:36:43.239Z [INFO] [守护进程] 2026-03-04 20:36:43,238 | INFO | T4 daemon listening on 127.0.0.1:25180
+2026-03-04T12:36:43.422Z [INFO] [守护进程] 2026-03-04 20:36:43,421 | WARNING | Client connected then closed without sending data
+2026-03-04T13:00:00.179Z [INFO] 正在启动 Python 守护进程 [t4_daemon.py]...
+2026-03-04T13:00:00.193Z [INFO] 守护进程启动成功，PID: 26535
+2026-03-04T13:00:00.450Z [INFO] [守护进程] 2026-03-04 21:00:00,450 | INFO | T4 daemon listening on 127.0.0.1:25180
+2026-03-04T13:00:00.513Z [INFO] [守护进程] 2026-03-04 21:00:00,512 | WARNING | Client connected then closed without sending data
+2026-03-04T13:03:28.211Z [INFO] 正在启动 Python 守护进程 [t4_daemon.py]...
+2026-03-04T13:03:28.239Z [INFO] 守护进程启动成功，PID: 27640
+2026-03-04T13:03:28.962Z [INFO] [守护进程] 2026-03-04 21:03:28,960 | INFO | T4 daemon listening on 127.0.0.1:25180
+2026-03-04T13:03:29.162Z [INFO] [守护进程] 2026-03-04 21:03:29,161 | WARNING | Client connected then closed without sending data
+2026-03-04T13:07:56.009Z [INFO] 正在启动 Python 守护进程 [t4_daemon.py]...
+2026-03-04T13:07:56.023Z [INFO] 守护进程启动成功，PID: 29033
+2026-03-04T13:07:56.251Z [INFO] [守护进程] 2026-03-04 21:07:56,251 | INFO | T4 daemon listening on 127.0.0.1:25180
+2026-03-04T13:07:56.340Z [INFO] [守护进程] 2026-03-04 21:07:56,339 | WARNING | Client connected then closed without sending data
+2026-03-04T13:23:29.229Z [INFO] 正在启动 Python 守护进程 [t4_daemon.py]...
+2026-03-04T13:23:29.241Z [INFO] 守护进程启动成功，PID: 2693
+2026-03-04T13:23:29.498Z [INFO] [守护进程] 2026-03-04 21:23:29,497 | INFO | T4 daemon listening on 127.0.0.1:25180
+2026-03-04T13:23:29.555Z [INFO] [守护进程] 2026-03-04 21:23:29,554 | WARNING | Client connected then closed without sending data
+2026-03-04T13:24:05.917Z [INFO] 正在启动 Python 守护进程 [t4_daemon.py]...
+2026-03-04T13:24:05.931Z [INFO] 守护进程启动成功，PID: 3382
+2026-03-04T13:24:06.058Z [INFO] [守护进程] 2026-03-04 21:24:06,058 | INFO | T4 daemon listening on 127.0.0.1:25180
+2026-03-04T13:24:06.251Z [INFO] [守护进程] 2026-03-04 21:24:06,246 | WARNING | Client connected then closed without sending data
+2026-03-04T13:29:34.507Z [INFO] 正在启动 Python 守护进程 [t4_daemon.py]...
+2026-03-04T13:29:34.521Z [INFO] 守护进程启动成功，PID: 6005
+2026-03-04T13:29:34.770Z [INFO] [守护进程] 2026-03-04 21:29:34,769 | INFO | T4 daemon listening on 127.0.0.1:25180
+2026-03-04T13:29:34.835Z [INFO] [守护进程] 2026-03-04 21:29:34,834 | WARNING | Client connected then closed without sending data
+2026-03-04T13:40:12.420Z [INFO] 正在启动 Python 守护进程 [t4_daemon.py]...
+2026-03-04T13:40:12.436Z [INFO] 守护进程启动成功，PID: 8692
+2026-03-04T13:40:12.694Z [INFO] [守护进程] 2026-03-04 21:40:12,693 | INFO | T4 daemon listening on 127.0.0.1:25180
+2026-03-04T13:40:12.749Z [INFO] [守护进程] 2026-03-04 21:40:12,747 | WARNING | Client connected then closed without sending data
+2026-03-04T13:44:20.756Z [INFO] 正在启动 Python 守护进程 [t4_daemon.py]...
+2026-03-04T13:44:20.769Z [INFO] 守护进程启动成功，PID: 9916
+2026-03-04T13:44:21.025Z [INFO] [守护进程] 2026-03-04 21:44:21,025 | INFO | T4 daemon listening on 127.0.0.1:25180
+2026-03-04T13:44:21.089Z [INFO] [守护进程] 2026-03-04 21:44:21,088 | WARNING | Client connected then closed without sending data
+2026-03-04T13:49:08.324Z [INFO] 正在启动 Python 守护进程 [t4_daemon.py]...
+2026-03-04T13:49:08.343Z [INFO] 守护进程启动成功，PID: 11556
+2026-03-04T13:49:08.550Z [INFO] [守护进程] 2026-03-04 21:49:08,549 | INFO | T4 daemon listening on 127.0.0.1:25180
+2026-03-04T13:49:08.658Z [INFO] [守护进程] 2026-03-04 21:49:08,657 | WARNING | Client connected then closed without sending data
+2026-03-08T13:19:01.061Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-08T13:19:10.416Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-08T13:19:24.492Z [INFO] 没有运行的守护进程
+2026-03-08T13:19:24.798Z [INFO] 没有运行的守护进程
+2026-03-08T13:23:18.201Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-08T13:23:18.311Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-08T13:36:44.187Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-08T13:51:43.298Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-08T14:07:37.921Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-08T14:11:33.633Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-08T14:14:28.424Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-08T14:15:48.097Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-08T14:18:38.641Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-08T15:29:53.412Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-08T16:04:11.959Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-08T16:08:23.589Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-08T16:09:33.969Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-08T16:10:33.349Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-10T00:56:33.128Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-10T01:00:54.551Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-10T01:02:56.212Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-10T01:03:35.530Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-10T01:05:51.655Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-10T01:07:11.146Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-10T01:37:38.676Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-10T01:38:16.789Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-10T01:39:04.251Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-10T01:46:45.294Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-10T02:19:07.121Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-10T02:20:30.725Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-10T02:22:31.454Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-10T02:23:24.143Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-10T02:24:43.407Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-10T02:37:20.382Z [INFO] 当前环境不支持Python,跳过启动守护进程
+2026-03-10T02:40:18.206Z [INFO] 当前环境不支持Python,跳过启动守护进程

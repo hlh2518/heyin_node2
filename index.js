@@ -1,5 +1,5 @@
 /**
- * DRPY Node.js 主容器 - 集成智能路由视频嗅探器
+ * DRPY Node.js 主容器 - 集成智能路由视频解析器
  */
 
 import * as fastlogger from './controllers/fastlogger.js'
@@ -22,7 +22,7 @@ const {fastify, wsApp} = fastlogger;
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PORT = 25181;
 const WsPORT = 25182;
-const SNIFFER_PORT = 2692; // 智能嗅探器API端口
+const SNIFFER_PORT = 2692; // 智能解析器API端口
 const MAX_TEXT_SIZE = process.env.MAX_TEXT_SIZE || 0.1 * 1024 * 1024; // 设置最大文本大小为 0.1 MB
 const MAX_IMAGE_SIZE = process.env.MAX_IMAGE_SIZE || 0.5 * 1024 * 1024; // 设置最大图片大小为 500 KB
 
@@ -41,7 +41,7 @@ const catLibDir = path.join(__dirname, 'spider/catLib');
 const xbpqDir = path.join(__dirname, 'spider/xbpq');
 const configDir = path.join(__dirname, 'config');
 
-// 嗅探器相关变量
+// 解析器相关变量
 let snifferInstance = null;
 let snifferServer = null;
 let http = null; // 延迟导入
@@ -50,28 +50,28 @@ const pluginProcs = startAllPlugins(__dirname);
 // console.log('pluginProcs:', pluginProcs);
 
 // ============================
-// 智能路由视频嗅探器相关函数
+// 智能路由视频解析器相关函数
 // ============================
 
 /**
- * 初始化并启动智能路由视频嗅探器
+ * 初始化并启动智能路由视频解析器
  */
 /**
- * 初始化并启动智能路由视频嗅探器
+ * 初始化并启动智能路由视频解析器
  */
 async function initSniffer() {
     try {
-        console.log('🚀 初始化智能路由视频嗅探器...');
+        console.log('🚀 初始化智能路由视频解析器...');
 
         // 动态导入 http 模块
         http = await import('http');
 
-        // 动态导入嗅探器模块
+        // 动态导入解析器模块
         // const snifferModule = await import('./asyncSnifferPro/src/index.js');
          const snifferModule = await import('./heyin_parser/index.js');
         const { Sniffer } = snifferModule;
 
-        // 创建嗅探器实例
+        // 创建解析器实例
         snifferInstance = new Sniffer({
             debug: false,
             headless: true,
@@ -97,29 +97,29 @@ async function initSniffer() {
             throw new Error('浏览器初始化失败：browser 对象为 null 或 undefined');
         }
 
-        console.log('✅ 嗅探器浏览器初始化成功');
+        console.log('✅ 解析器浏览器初始化成功');
         console.log(`浏览器类型: ${typeof snifferInstance.browser}`);
         console.log(`浏览器方法: ${Object.keys(snifferInstance.browser).filter(key => typeof snifferInstance.browser[key] === 'function').join(', ')}`);
 
         return true;
     } catch (error) {
-        console.error('❌ 初始化嗅探器失败:', error.message);
+        console.error('❌ 初始化解析器失败:', error.message);
         console.error('错误堆栈:', error.stack);
         return false;
     }
 }
 
 /**
- * 启动嗅探器HTTP API服务
+ * 启动解析器HTTP API服务
  */
 async function startSnifferServer() {
     if (!snifferInstance || !http) {
-        console.error('❌ 嗅探器未初始化，无法启动API服务');
+        console.error('❌ 解析器未初始化，无法启动API服务');
         return false;
     }
 
     try {
-        console.log('🌐 启动嗅探器HTTP API服务...');
+        console.log('🌐 启动解析器HTTP API服务...');
 
         snifferServer = http.createServer(async (req, res) => {
             // 设置CORS头
@@ -160,7 +160,7 @@ async function startSnifferServer() {
                     }));
                 }
             } catch (error) {
-                console.error(`[嗅探器API] 处理请求错误:`, error);
+                console.error(`[解析器API] 处理请求错误:`, error);
                 res.writeHead(500);
                 res.end(JSON.stringify({
                     code: 500,
@@ -172,7 +172,7 @@ async function startSnifferServer() {
         // 启动服务器
         return new Promise((resolve, reject) => {
             snifferServer.listen(SNIFFER_PORT, '0.0.0.0', () => {
-                console.log(`🔍 智能路由嗅探器API启动成功`);
+                console.log(`🔍 智能路由解析器API启动成功`);
                 console.log(`   - 端口: ${SNIFFER_PORT}`);
                 console.log(`   - 接口: GET /parse?url={视频URL}`);
                 console.log(`   - 健康检查: GET /health`);
@@ -181,13 +181,13 @@ async function startSnifferServer() {
             });
 
             snifferServer.on('error', (error) => {
-                console.error('❌ 启动嗅探器API服务失败:', error);
+                console.error('❌ 启动解析器API服务失败:', error);
                 reject(error);
             });
         });
 
     } catch (error) {
-        console.error('❌ 启动嗅探器API服务失败:', error);
+        console.error('❌ 启动解析器API服务失败:', error);
         return false;
     }
 }
@@ -206,7 +206,7 @@ async function handleParseRequest(req, res, url) {
         return;
     }
 
-    console.log(`[嗅探器API] 解析请求: ${videoUrl.substring(0, 80)}...`);
+    console.log(`[解析器API] 解析请求: ${videoUrl.substring(0, 80)}...`);
 
     // 平台识别
     let platform = '其他';
@@ -217,7 +217,7 @@ async function handleParseRequest(req, res, url) {
     else if (videoUrl.includes('bilibili.com')) platform = '哔哩哔哩';
     else if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) platform = 'YouTube';
 
-    // 执行嗅探
+    // 执行解析
     const result = await snifferInstance.snifferWithJxRouter(videoUrl, {
         timeout: parseInt(url.searchParams.get('timeout')) || 20000,
         isPc: true,
@@ -228,7 +228,7 @@ async function handleParseRequest(req, res, url) {
     const response = {
         code: result.code || 500,
         msg: result.msg || (result.url ? '解析成功' : '解析失败'),
-        parse: result.url ? 0 : 1, // 0:直接播放, 1:需要嗅探
+        parse: result.url ? 0 : 1, // 0:直接播放, 1:需要解析
         jx: result.jxSource ? 1 : 0,
         url: result.url || '',
         header: result.headers || {},
@@ -316,7 +316,7 @@ async function handleStatsRequest(req, res) {
         res.writeHead(503);
         res.end(JSON.stringify({
             code: 503,
-            error: '嗅探器未初始化'
+            error: '解析器未初始化'
         }));
         return;
     }
@@ -353,7 +353,7 @@ function handleRootRequest(req, res) {
     res.writeHead(200);
     res.end(JSON.stringify({
         code: 200,
-        msg: '智能路由视频嗅探器 API',
+        msg: '智能路由视频解析器 API',
         version: '1.0.0',
         endpoints: {
             'GET /parse?url={video_url}': '解析视频URL',
@@ -365,22 +365,22 @@ function handleRootRequest(req, res) {
 }
 
 /**
- * 停止嗅探器服务
+ * 停止解析器服务
  */
 async function stopSnifferServer() {
     if (snifferInstance) {
         try {
             await snifferInstance.close();
-            console.log('✅ 嗅探器浏览器已关闭');
+            console.log('✅ 解析器浏览器已关闭');
         } catch (error) {
-            console.error('关闭嗅探器浏览器失败:', error);
+            console.error('关闭解析器浏览器失败:', error);
         }
     }
 
     if (snifferServer) {
         return new Promise((resolve) => {
             snifferServer.close(() => {
-                console.log('🛑 嗅探器API服务已停止');
+                console.log('🛑 解析器API服务已停止');
                 resolve();
             });
 
@@ -388,7 +388,7 @@ async function stopSnifferServer() {
             setTimeout(() => {
                 if (snifferServer.listening) {
                     snifferServer.closeAllConnections();
-                    console.log('🛑 嗅探器API服务强制关闭');
+                    console.log('🛑 解析器API服务强制关闭');
                     resolve();
                 }
             }, 5000);
@@ -406,12 +406,12 @@ fastify.addHook('onReady', async () => {
         await daemon.startDaemon();
         fastify.log.info('Python守护进程已启动');
 
-        // 启动智能嗅探器
+        // 启动智能解析器
         const snifferInited = await initSniffer();
         if (snifferInited) {
             await startSnifferServer();
         } else {
-            console.log('⚠️  智能嗅探器初始化失败，相关功能将不可用');
+            console.log('⚠️  智能解析器初始化失败，相关功能将不可用');
         }
     } catch (error) {
         fastify.log.error(`启动Python守护进程失败: ${error.message}`);
@@ -428,7 +428,7 @@ async function onClose() {
     }
 }
 
-// 停止时清理守护进程和嗅探器
+// 停止时清理守护进程和解析器
 fastify.addHook('onClose', async () => {
     await onClose();
     await stopSnifferServer();
@@ -487,7 +487,7 @@ const handleExit = async (signal) => {
     try {
         await onClose();
 
-        // 停止嗅探器服务
+        // 停止解析器服务
         await stopSnifferServer();
 
         // 停止 WebSocket 服务器
@@ -635,12 +635,12 @@ const start = async () => {
         console.log(`\n🔌 WebSocket服务 (端口 ${WsPORT}):`);
         console.log(`  - 本地: ${networkInfo.wsLocalAddress}`);
         console.log(`  - 局域网: ${networkInfo.wsLanAddress}`);
-        console.log(`\n🔍 智能路由嗅探器 (端口 ${SNIFFER_PORT}):`);
+        console.log(`\n🔍 智能路由解析器 (端口 ${SNIFFER_PORT}):`);
         console.log(`  - 本地: ${networkInfo.snifferLocalAddress}`);
         console.log(`  - 局域网: ${networkInfo.snifferLanAddress}`);
         console.log(`  - 接口: GET /parse?url={视频URL}`);
         
-       
+        // ... 其他信息 ...
 
     } catch (err) {
         fastify.log.error(err);
@@ -653,7 +653,7 @@ const start = async () => {
 // 停止服务
 const stop = async () => {
     try {
-        // 停止嗅探器服务
+        // 停止解析器服务
         await stopSnifferServer();
 
         // 停止 WebSocket 服务器

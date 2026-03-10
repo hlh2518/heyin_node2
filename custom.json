@@ -1,7 +1,7 @@
 {
-  "sites_count": 12,
+  "sites_count": 20,
   "wallpaper": "https://api.likepoems.com/img/bing/",
-  "spider": "http://192.168.1.104:25181/jx/heyin.jar;md5;4c081707466c977fe510db01d9bd695c",
+  "spider": "http://127.0.0.1:25181/jx/heyin.jar;md5;4c081707466c977fe510db01d9bd695c",
   "homepage": "",
   "aiLogo": "https://image.baidu.com/search/index?tn=baiduimage&ct=201326592&lm=-1&cl=2&word=%E7%8B%97%E4%BD%9C%E4%B8%BA%E8%BD%AF%E4%BB%B6%E5%9B%BE%E6%A0%87&dyTabStr=MCwxMiwzLDEsMiwxMyw3LDYsNSw5",
   "homeLogo": "https://github.catvod.com/https://raw.githubusercontent.com/hjdhnx/drpy-node/refs/heads/main/public/images/logo500x200-1.png",
@@ -535,10 +535,25 @@
   ],
   "sites": [
     {
+      "key": "drpyS_番茄小说",
+      "name": "番茄小说🔥荷影",
+      "type": 4,
+      "api": "http://127.0.0.1:25181/api/番茄小说",
+      "searchable": 2,
+      "filterable": 1,
+      "quickSearch": 0,
+      "title": "番茄小说",
+      "author": "道长",
+      "类型": "小说",
+      "logo": "https://www.18zf.net/d/file/p/2023/1107/3ty5orktxrc.jpg",
+      "lang": "ds",
+      "ext": ""
+    },
+    {
       "key": "drpyS_央视大全🎙",
       "name": "央视大全🎙🔥荷影",
       "type": 4,
-      "api": "http://192.168.1.104:25181/api/央视大全🎙",
+      "api": "http://127.0.0.1:25181/api/央视大全🎙",
       "searchable": 1,
       "filterable": 1,
       "quickSearch": 0,
@@ -550,7 +565,7 @@
       "key": "drpyS_360影视📹",
       "name": "360影视📹🔥荷影",
       "type": 4,
-      "api": "http://192.168.1.104:25181/api/360影视📹",
+      "api": "http://127.0.0.1:25181/api/360影视📹",
       "searchable": 2,
       "filterable": 1,
       "quickSearch": 0,
@@ -563,20 +578,19 @@
       "key": "drpyS_爱奇艺❤️",
       "name": "爱奇艺❤️🔥荷影",
       "type": 4,
-      "api": "http://192.168.1.104:25181/api/爱奇艺❤️",
+      "api": "http://127.0.0.1:25181/api/爱奇艺❤️",
       "searchable": 2,
       "filterable": 1,
       "quickSearch": 0,
       "title": "爱奇艺❤️",
-      "类型": "影视",
-      "lang": "荷影",
+      "lang": "ds",
       "ext": ""
     },
     {
       "key": "drpyS_哔哩影视📀",
       "name": "哔哩影视📀🔥荷影",
       "type": 4,
-      "api": "http://192.168.1.104:25181/api/哔哩影视📀",
+      "api": "http://127.0.0.1:25181/api/哔哩影视📀",
       "searchable": 1,
       "filterable": 1,
       "quickSearch": 0,
@@ -585,10 +599,54 @@
       "ext": ""
     },
     {
+      "key": "drpyS_博看听书",
+      "name": "博看听书🔥荷影",
+      "type": 4,
+      "api": "http://127.0.0.1:25181/api/博看听书",
+      "searchable": 2,
+      "filterable": 0,
+      "quickSearch": 0,
+      "title": "博看听书",
+      "类型": "听书",
+      "lang": "ds",
+      "ext": ""
+    },
+    {
+      "key": "drpyS_布谷音乐",
+      "name": "布谷音乐🔥荷影",
+      "type": 4,
+      "api": "http://127.0.0.1:25181/api/布谷音乐",
+      "searchable": 2,
+      "filterable": 0,
+      "quickSearch": 0,
+      "title": "布谷音乐",
+      "类型": "音乐",
+      "mergeList": true,
+      "more": {
+        "mergeList": 1
+      },
+      "lang": "ds",
+      "ext": ""
+    },
+    {
+      "key": "drpyS_短剧聚合",
+      "name": "短剧聚合🔥荷影",
+      "type": 4,
+      "api": "http://127.0.0.1:25181/api/短剧聚合",
+      "searchable": 1,
+      "filterable": 1,
+      "quickSearch": 1,
+      "title": "短剧聚合",
+      "author": "EylinSir",
+      "类型": "短剧",
+      "lang": "ds",
+      "ext": ""
+    },
+    {
       "key": "drpyS_荷影综合💽",
       "name": "荷影综合💽🔥荷影",
       "type": 4,
-      "api": "http://192.168.1.104:25181/api/荷影综合💽",
+      "api": "http://127.0.0.1:25181/api/荷影综合💽",
       "searchable": 2,
       "filterable": 1,
       "quickSearch": 0,
@@ -598,10 +656,39 @@
       "ext": ""
     },
     {
+      "key": "drpyS_黄荷读书1",
+      "name": "黄荷读书1🔥荷影",
+      "type": 4,
+      "api": "http://127.0.0.1:25181/api/黄荷读书1",
+      "searchable": 1,
+      "filterable": 0,
+      "quickSearch": 1,
+      "title": "黄荷读书1",
+      "author": "EylinSir",
+      "类型": "小说",
+      "logo": "http://www.qudushu.com/favicon.ico",
+      "lang": "ds",
+      "ext": ""
+    },
+    {
+      "key": "drpyS_黄荷读书2",
+      "name": "黄荷读书2🔥荷影",
+      "type": 4,
+      "api": "http://127.0.0.1:25181/api/黄荷读书2",
+      "searchable": 2,
+      "filterable": 1,
+      "quickSearch": 0,
+      "title": "黄荷读书2",
+      "author": "EylinSir",
+      "类型": "小说",
+      "lang": "ds",
+      "ext": ""
+    },
+    {
       "key": "drpyS_荐片📡",
       "name": "荐片📡🔥荷影",
       "type": 4,
-      "api": "http://192.168.1.104:25181/api/荐片📡",
+      "api": "http://127.0.0.1:25181/api/荐片📡",
       "searchable": 2,
       "filterable": 1,
       "quickSearch": 0,
@@ -613,7 +700,7 @@
       "key": "drpyS_酷狗视频🐶",
       "name": "酷狗视频🐶🔥荷影",
       "type": 4,
-      "api": "http://192.168.1.104:25181/api/酷狗视频🐶",
+      "api": "http://127.0.0.1:25181/api/酷狗视频🐶",
       "searchable": 2,
       "filterable": 1,
       "quickSearch": 0,
@@ -626,7 +713,7 @@
       "key": "drpyS_酷我听书🎎",
       "name": "酷我听书🎎🔥荷影",
       "type": 4,
-      "api": "http://192.168.1.104:25181/api/酷我听书🎎",
+      "api": "http://127.0.0.1:25181/api/酷我听书🎎",
       "searchable": 2,
       "filterable": 1,
       "quickSearch": 0,
@@ -639,7 +726,7 @@
       "key": "drpyS_芒果视频🥭",
       "name": "芒果视频🥭🔥荷影",
       "type": 4,
-      "api": "http://192.168.1.104:25181/api/芒果视频🥭",
+      "api": "http://127.0.0.1:25181/api/芒果视频🥭",
       "searchable": 2,
       "filterable": 1,
       "quickSearch": 0,
@@ -648,10 +735,25 @@
       "ext": ""
     },
     {
+      "key": "drpyS_努努书坊[书]",
+      "name": "努努书坊[书]🔥荷影",
+      "type": 4,
+      "api": "http://127.0.0.1:25181/api/努努书坊[书]",
+      "searchable": 1,
+      "filterable": 0,
+      "quickSearch": 1,
+      "title": "努努书坊[书]",
+      "author": "EylinSir",
+      "类型": "小说",
+      "logo": "https://www.nunubook.com/favicon.ico",
+      "lang": "ds",
+      "ext": ""
+    },
+    {
       "key": "drpyS_腾讯视频🏃‍♀️",
       "name": "腾讯视频🏃‍♀️🔥荷影",
       "type": 4,
-      "api": "http://192.168.1.104:25181/api/腾讯视频🏃‍♀️",
+      "api": "http://127.0.0.1:25181/api/腾讯视频🏃‍♀️",
       "searchable": 2,
       "filterable": 1,
       "quickSearch": 0,
@@ -663,7 +765,7 @@
       "key": "drpyS_优酷视频🎞",
       "name": "优酷视频🎞🔥荷影",
       "type": 4,
-      "api": "http://192.168.1.104:25181/api/优酷视频🎞",
+      "api": "http://127.0.0.1:25181/api/优酷视频🎞",
       "searchable": 2,
       "filterable": 1,
       "quickSearch": 0,
@@ -676,19 +778,38 @@
       "key": "hipy_py_cntv",
       "name": "cntv🔥荷影",
       "type": 3,
-      "api": "http://192.168.1.104:25181/py/cntv.py",
+      "api": "http://127.0.0.1:25181/py/cntv.py",
       "searchable": 1,
       "filterable": 1,
       "quickSearch": 1,
       "title": "cntv",
       "lang": "hipy",
-      "ext": "http://192.168.1.104:25181/py/cntv.py"
+      "ext": "http://127.0.0.1:25181/py/cntv.py"
+    },
+    {
+      "key": "drpyS_DJ音乐",
+      "name": "DJ音乐🔥荷影",
+      "type": 4,
+      "api": "http://127.0.0.1:25181/api/DJ音乐",
+      "searchable": 2,
+      "filterable": 0,
+      "quickSearch": 0,
+      "title": "DJ音乐",
+      "author": "EylinSir",
+      "类型": "影视",
+      "mergeList": true,
+      "more": {
+        "mergeList": 1
+      },
+      "logo": "https://pic.289.com/up/2023-12/20231219154340126.png",
+      "lang": "ds",
+      "ext": ""
     }
   ],
   "parses": [
     {
       "name": "荷影智能解析",
-      "url": "http://192.168.1.104:25181/parse/荷影智能解析?url=",
+      "url": "http://127.0.0.1:25181/parse/荷影智能解析?url=",
       "type": 1,
       "ext": {
         "flag": [
@@ -758,6 +879,134 @@
       },
       "header": {
         "User-Agent": "Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.91 Mobile Safari/537.36"
+      }
+    },
+    {
+      "name": "荷影W1",
+      "url": "https://jx.xymp4.cc/?url=",
+      "type": 0,
+      "header": {
+        "User-Agent": "Mozilla/5.0"
+      }
+    },
+    {
+      "name": "荷影W3",
+      "url": "https://yparse.ik9.cc/index.php?url=",
+      "type": 0,
+      "header": {
+        "User-Agent": "Mozilla/5.0"
+      }
+    },
+    {
+      "name": "荷影4",
+      "url": "https://jiexi.site/?url=",
+      "type": 0,
+      "header": {
+        "User-Agent": "Mozilla/5.0"
+      }
+    },
+    {
+      "name": "荷影5",
+      "url": "https://jx.m3u8.tv/jiexi/?url=",
+      "type": 0,
+      "header": {
+        "User-Agent": "Mozilla/5.0"
+      }
+    },
+    {
+      "name": "荷影6",
+      "url": "https://www.pangujiexi.com/jiexi/?url=",
+      "type": 0,
+      "header": {
+        "User-Agent": "Mozilla/5.0"
+      }
+    },
+    {
+      "name": "荷影8",
+      "url": "https://www.pouyun.com/?url=",
+      "type": 0,
+      "header": {
+        "User-Agent": "Mozilla/5.0"
+      }
+    },
+    {
+      "name": "荷影9",
+      "url": "https://jx.xmflv.com/?url=",
+      "type": 0,
+      "header": {
+        "User-Agent": "Mozilla/5.0"
+      }
+    },
+    {
+      "name": "荷影10",
+      "url": "https://jx.xmflv.cc/?url=",
+      "type": 0,
+      "header": {
+        "User-Agent": "Mozilla/5.0"
+      }
+    },
+    {
+      "name": "荷影11",
+      "url": "https://jx.yparse.com/index.php?url=",
+      "type": 0,
+      "header": {
+        "User-Agent": "Mozilla/5.0"
+      }
+    },
+    {
+      "name": "荷影12",
+      "url": "https://www.8090g.cn/?url=",
+      "type": 0,
+      "header": {
+        "User-Agent": "Mozilla/5.0"
+      }
+    },
+    {
+      "name": "荷影13",
+      "url": "https://www.ckplayer.vip/jiexi/?url=",
+      "type": 0,
+      "header": {
+        "User-Agent": "Mozilla/5.0"
+      }
+    },
+    {
+      "name": "荷影花旗",
+      "url": "https://www.huaqi.live/?url=",
+      "type": 0,
+      "header": {
+        "User-Agent": "Mozilla/5.0"
+      }
+    },
+    {
+      "name": "荷影解析 1",
+      "url": "https://kalbim.xatut.top/kalbim2025/781718/play/video_player.php?url=",
+      "type": 1,
+      "header": {
+        "User-Agent": "Mozilla/5.0"
+      }
+    },
+    {
+      "name": "荷影盘古",
+      "url": "https://www.playm3u8.cn/jiexi.php?url=",
+      "type": 0,
+      "header": {
+        "User-Agent": "Mozilla/5.0"
+      }
+    },
+    {
+      "name": "芒果专用解析 4k",
+      "url": "http://mg.itufm.top/mg.php?url=",
+      "type": 1,
+      "header": {
+        "User-Agent": "Mozilla/5.0"
+      }
+    },
+    {
+      "name": "腾讯专用解析",
+      "url": "http://127.0.0.1:5759/tencent.php/?url=",
+      "type": 1,
+      "header": {
+        "User-Agent": "Mozilla/5.0"
       }
     }
   ],
